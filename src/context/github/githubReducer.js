@@ -9,19 +9,29 @@ import {
 export default (state, action) => {
   switch (action.type) {
     case SEARCH_USERS:
-      console.log(action.payload);
       return {
         ...state,
         users: action.payload,
         loading: false,
       };
-
-    case SET_LOADING:
+    case GET_USER:
       return {
         ...state,
-        loading: true,
+        user: action.payload,
+        loading: false,
       };
-
+    case GET_REPOS:
+      return {
+        ...state,
+        repos: action.payload,
+        loading: false,
+      };
+    case CLEAR_USERS:
+      return {
+        ...state,
+        users: [],
+        loading: false,
+      };
     default:
       return state;
   }
